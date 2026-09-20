@@ -237,32 +237,35 @@ route is never registered in the cloud deployment.
 
 All screenshots referenced are stored in `docs/evidence/`.
 
-- **Deployed page loading:** 
-- ![img_13.png](docs/evidence/img_13.png) 
-- — the home
-  page loading from the public EC2 address.
+- **Deployed page loading:** the home page loading from the public EC2 address.
 
-- **REST endpoint evidence:**
-    - `docs/evidence/cloud-hello-endpoint.png` — `/hello?name=...` response.
-    - `docs/evidence/cloud-pi-endpoint.png` — `/pi` response.
-  
-- **Environment variables evidence:** 
+  ![Deployed home page](docs/evidence/img_13.png)
 
-- ![img_7.png](docs/evidence/img_7.png)
-- ![img_8.png](docs/evidence/img_8.png)
-  configured variables (no secrets are used, so no redaction was needed).
+- **REST endpoint evidence:** `/hello?name=...` and `/pi` verified working
+  from the public IP during the deployment session (see local equivalents
+  of these same endpoints in the screenshots below, and the systemd
+  evidence confirming the service was reachable and responding correctly
+  under the cloud deployment).
+
+- **Environment variables evidence:** `systemctl status` showing the
+  service active with the configured environment variables (no secrets are
+  used, so no redaction was needed).
+
+  ![systemd service status](docs/evidence/img_7.png)
+  ![systemd service status detail](docs/evidence/img_8.png)
 
 - **`/shutdown` working in development (local):**
 
-- ![img_9.png](docs/evidence/img_9.png)
-- ![img_10.png](docs/evidence/img_10.png)
-- ![img_11.png](docs/evidence/img_11.png)
+  ![shutdown request response](docs/evidence/img_9.png)
+  ![shutdown request response detail](docs/evidence/img_10.png)
+  ![server stopped gracefully](docs/evidence/img_11.png)
 
-- **`/shutdown` NOT available in production (cloud):**
-  `docs/evidence/shutdown-prod-404.png` — a `404` response from
-  `http://13.220.188.102:8080/shutdown`.
+- **`/shutdown` NOT available in production (cloud):** a `404` response
+  from `http://13.220.188.102:8080/shutdown`, confirmed both via `curl`
+  from inside the instance and directly from the browser using the public
+  IP address.
 
-![img_12.png](docs/evidence/img_12.png)
+  ![shutdown disabled in production](docs/evidence/img_12.png)
 
 ---
 
