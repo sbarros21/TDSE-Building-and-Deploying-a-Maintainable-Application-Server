@@ -229,30 +229,40 @@ route is never registered in the cloud deployment.
 | Unknown resource | `http://13.220.188.102:8080/unknown` → `404` |
 | Shutdown (must be disabled) | `http://13.220.188.102:8080/shutdown` → `404` in production |
 
+![img_6.png](docs/evidence/img_6.png)
+
 ---
 
 ## 8. Evidence
 
-All screenshots referenced below are stored in `docs/evidence/`.
+All screenshots referenced are stored in `docs/evidence/`.
 
-- **Deployed page loading:** `docs/evidence/cloud-home-page.png` — the home
+- **Deployed page loading:** 
+- ![img_13.png](docs/evidence/img_13.png) 
+- — the home
   page loading from the public EC2 address.
-- **Static resource evidence:** `docs/evidence/cloud-static-image.png` —
-  `images/logo.png` served correctly with `Content-Type: image/png`.
+
 - **REST endpoint evidence:**
     - `docs/evidence/cloud-hello-endpoint.png` — `/hello?name=...` response.
     - `docs/evidence/cloud-pi-endpoint.png` — `/pi` response.
-- **Environment variables evidence:** `docs/evidence/systemd-status.png` —
-  `systemctl status webframework.service`, and
-  `docs/evidence/systemd-service-file.png` — the service file showing
+  
+- **Environment variables evidence:** 
+
+- ![img_7.png](docs/evidence/img_7.png)
+- ![img_8.png](docs/evidence/img_8.png)
   configured variables (no secrets are used, so no redaction was needed).
+
 - **`/shutdown` working in development (local):**
-  `docs/evidence/shutdown-dev-request.png` (the `200 OK` response) and
-  `docs/evidence/shutdown-dev-console.png` (the server printing
-  `Server stopped gracefully.` and exiting).
+
+- ![img_9.png](docs/evidence/img_9.png)
+- ![img_10.png](docs/evidence/img_10.png)
+- ![img_11.png](docs/evidence/img_11.png)
+
 - **`/shutdown` NOT available in production (cloud):**
   `docs/evidence/shutdown-prod-404.png` — a `404` response from
   `http://13.220.188.102:8080/shutdown`.
+
+![img_12.png](docs/evidence/img_12.png)
 
 ---
 
@@ -271,6 +281,18 @@ All screenshots referenced below are stored in `docs/evidence/`.
 | 9 | `/shutdown` in development | `curl -i http://localhost:8080/shutdown` (default `APP_ENV`) | `200`, server exits gracefully |
 | 10 | `/shutdown` in production | `curl -i http://13.220.188.102:8080/shutdown` | `404 Not Found` |
 | 11 | Persistence after SSH close | Close all EC2 Instance Connect sessions, then request `/pi` from the public IP | Server keeps responding (managed by `systemd`) |
+
+![img.png](docs/evidence/img.png)
+
+![img_1.png](docs/evidence/img_1.png)
+
+![img_2.png](docs/evidence/img_2.png)
+
+![img_3.png](docs/evidence/img_3.png)
+
+![img_4.png](docs/evidence/img_4.png)
+
+![img_5.png](docs/evidence/img_5.png)
 
 ---
 
