@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mini Web Framework</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="container">
+    <img src="/images/logo.png" alt="Logo" class="logo">
+    <h1>Mini Web Framework</h1>
+    <p>A lambda-based lightweight application server.</p>
+
+    <div class="card">
+        <h2>Greeting service</h2>
+        <input type="text" id="nameInput" placeholder="Enter your name">
+        <button onclick="greet()">Say hello</button>
+        <p id="greetResult" class="result"></p>
+    </div>
+
+    <div class="card">
+        <h2>Pi service</h2>
+        <button onclick="getPi()">Get the value of Pi</button>
+        <p id="piResult" class="result"></p>
+    </div>
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>
