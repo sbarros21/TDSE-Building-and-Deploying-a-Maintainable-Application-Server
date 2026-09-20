@@ -1,0 +1,17 @@
+target/
+*.class
+.idea/
+*.iml
+.vscode/
+.project
+.classpath
+.settings/
+.DS_Store
+Thumbs.db
+*.log
+logs/
+.env
+.env.*
+*.pem
+*.key
+deploy/
