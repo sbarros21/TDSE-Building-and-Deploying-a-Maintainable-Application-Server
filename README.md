@@ -48,9 +48,7 @@ reads query parameters, and dispatches:
 1) to a matching dynamic route, or
 2) to the Static File Service as a fallback, or
 3) returns 404 if neither matches
-   │
-   ├──────────────┐
-   ▼              ▼
+   Either:
    Request / Response Static File Service
    (data abstractions) (StaticFileService.java)
    Serves HTML/CSS/JS/images
@@ -252,13 +250,11 @@ All screenshots referenced are stored in `docs/evidence/`.
   used, so no redaction was needed).
 
   ![systemd service status](docs/evidence/img_7.png)
-  ![systemd service status detail](docs/evidence/img_8.png)
 
 - **`/shutdown` working in development (local):**
 
   ![shutdown request response](docs/evidence/img_9.png)
   ![shutdown request response detail](docs/evidence/img_10.png)
-  ![server stopped gracefully](docs/evidence/img_11.png)
 
 - **`/shutdown` NOT available in production (cloud):** a `404` response
   from `http://13.220.188.102:8080/shutdown`, confirmed both via `curl`
